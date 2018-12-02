@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeons_and_Dragons
 {
-    class HeroClass
+    public class HeroClass
     {
         public HeroCard Hero;
 

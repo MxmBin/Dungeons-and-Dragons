@@ -9,41 +9,26 @@ namespace Dungeons_and_Dragons
 {
     /// <summary>
     /// Логика взаимодействия для Window1.xaml
-    /// </summary>
+    /// </summary> 
+
     public partial class MainMenu : Window
     {
-
+        private HeroClass Hero;
         Main charMain = new Main();
         Inventory charInv = new Inventory();
 
-        //Классы для создания игры
-        public class Pers
-        {
-            public string login { get; set; }
-            public string session { get; set; }
-
-            public Pers(string login, string session)
-            {
-                this.login = login;
-                this.session = session;
-            }
-        }
-
-        public class Aut
-        {
-            public Pers auth { get; set; }
-
-            public Aut(string login, string session)
-            {
-                auth = new Pers(login, session);
-            }
-        }
-        //
-
         public MainMenu()
+        {
+            InitializeComponent();
+
+            UserLoginTextBlock.Text = UserInfo.UserLogin;
+        }
+
+        public MainMenu(HeroClass hero)
         {    
             InitializeComponent();
 
+            Hero = hero;
             UserLoginTextBlock.Text = UserInfo.UserLogin;
         }
 

@@ -64,8 +64,9 @@ namespace Dungeons_and_Dragons
                 if (response1.IsSuccessful)
                 {
                     // Переподключаемся к существующей игре
-                    MessageBox.Show(response1.Content);
-                    MainMenu mainMenuWin = new MainMenu();
+                    HeroClass hero = new HeroClass();
+                    hero = JsonConvert.DeserializeObject<HeroClass>(response1.Content);
+                    MainMenu mainMenuWin = new MainMenu(hero);
                     Close();
                     mainMenuWin.ShowDialog();
                 }

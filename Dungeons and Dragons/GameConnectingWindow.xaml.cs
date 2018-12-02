@@ -83,9 +83,9 @@ namespace Dungeons_and_Dragons
             if (response.IsSuccessful)
             {
                 HeroClass hero = new HeroClass();
-                hero = JsonConvert.DeserializeObject<HeroClass>(response.Content);;
+                hero = JsonConvert.DeserializeObject<HeroClass>(response.Content);
                 UserInfo.UserGame = usrAcc.game;
-                MainMenu mainMenu = new MainMenu();
+                MainMenu mainMenu = new MainMenu(hero);
                 Close();
                 mainMenu.ShowDialog();
             }

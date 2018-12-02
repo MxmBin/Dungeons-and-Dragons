@@ -85,7 +85,7 @@
     </ApplicationDefinition>
     <Compile Include="Classes\GameConnect.cs" />
     <Compile Include="Classes\UserAccount.cs" />
-    <Compile Include="HeroClass.cs" />
+    <Compile Include="Classes\HeroClass.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Classes\Auth.cs" />
     <Compile Include="Classes\ServerResponse.cs" />

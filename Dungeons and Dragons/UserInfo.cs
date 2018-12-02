@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dungeons_and_Dragons
 {
+    // Возможно стоит переделать и сделать обычный класс
     public static class UserInfo
     {
         public static string UserLogin { get; set; }
