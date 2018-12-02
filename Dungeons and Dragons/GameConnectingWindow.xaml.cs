@@ -61,7 +61,6 @@ namespace Dungeons_and_Dragons
                 Close();
                 mainMenu.ShowDialog();
             }
-
         }
 
         private void GameConnectingButton_Click(object sender, RoutedEventArgs e)
@@ -83,7 +82,8 @@ namespace Dungeons_and_Dragons
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                MessageBox.Show(response.Content);
+                HeroClass hero = new HeroClass();
+                hero = JsonConvert.DeserializeObject<HeroClass>(response.Content);;
                 UserInfo.UserGame = usrAcc.game;
                 MainMenu mainMenu = new MainMenu();
                 Close();
