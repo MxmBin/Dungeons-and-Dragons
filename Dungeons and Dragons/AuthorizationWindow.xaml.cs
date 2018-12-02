@@ -65,6 +65,9 @@ namespace Dungeons_and_Dragons
                 {
                     // Переподключаемся к существующей игре
                     MessageBox.Show(response1.Content);
+                    MainMenu mainMenuWin = new MainMenu();
+                    Close();
+                    mainMenuWin.ShowDialog();
                 }
                 else
                 {
