@@ -1,0 +1,29 @@
+﻿<Window x:Class="Dungeons_and_Dragons.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dungeons_and_Dragons"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        Title="Registration" Height="350" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Rectangle RadiusY="10" RadiusX="10" Fill="#FFEEEEEE"/>
+        <Grid Height="60" VerticalAlignment="Top" Background="#FF307CD6">
+            <Label Content="Настройки" FontFamily="Segoe UI Black" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Button x:Name="CloseSettigsButton" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Width="60" Height="60" Click="CloseRegistration_Button">
+                <materialDesign:PackIcon Kind="Close" Width="30" Height="30" />
+            </Button>
+        </Grid>
+        <StackPanel Margin="10 60 10 10" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel Margin="0,15" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Key" Margin="0 0 8 0" Height="30" Width="30" VerticalAlignment="Center" Foreground="#707070"/>
+                    <TextBlock Text="Ключ вашей игры" FontFamily="Segoe UI Black" FontSize="28" Margin="0 0 16 0" />
+                </StackPanel>
+                <TextBox x:Name="GameKeyTextBlock" HorizontalAlignment="Center" IsReadOnly="True" FontFamily="Segoe UI Black" FontSize="14" FontStyle="Italic"/>
+                <Button x:Name="CopyKey" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Скопировать" FontFamily="Monotype Corsiva" FontSize="24" Width="180" Height="40" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,10,0,0" FontWeight="Normal" Click="CopyKey_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
