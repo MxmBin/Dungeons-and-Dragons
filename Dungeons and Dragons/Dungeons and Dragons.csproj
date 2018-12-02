@@ -95,10 +95,10 @@
     <Compile Include="RegistrationWindow.xaml.cs">
       <DependentUpon>RegistrationWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CharacterInfo\Main.xaml.cs">
+    <Compile Include="HeroWindow\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CharacterInfo\Inventory.xaml.cs">
+    <Compile Include="HeroWindow\Inventory.xaml.cs">
       <DependentUpon>Inventory.xaml</DependentUpon>
     </Compile>
     <Compile Include="GameConnectingWindow.xaml.cs">
@@ -127,11 +127,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CharacterInfo\Main.xaml">
+    <Page Include="HeroWindow\Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="CharacterInfo\Inventory.xaml">
+    <Page Include="HeroWindow\Inventory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
