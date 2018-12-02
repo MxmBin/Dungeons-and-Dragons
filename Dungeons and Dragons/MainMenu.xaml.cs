@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Newtonsoft.Json;
 using RestSharp;
+using System.Threading;
 using Dungeons_and_Dragons.Classes;
 
 namespace Dungeons_and_Dragons
@@ -13,16 +14,41 @@ namespace Dungeons_and_Dragons
 
     public partial class MainMenu : Window
     {
-        private HeroClass Hero;
+        private static HeroClass Hero = new HeroClass();
         Main charMain = new Main();
         Inventory charInv = new Inventory();
 
+        public static void GetHero()
+        {
+            var client = new RestClient();
+            client.BaseUrl = new Uri("http://localhost:8080/");
+            var request = new RestRequest();
+            request.RequestFormat = RestSharp.DataFormat.Json;
+
+            request = new RestRequest(UserInfo.UserGame + "/Hero", Method.GET);
+            request.AddParameter("login", UserInfo.UserLogin);
+            request.AddParameter("session", UserInfo.UserSession);
+
+            
+            IRestResponse response = client.Execute(request);
+
+            while (response.IsSuccessful)
+            {
+                Hero = JsonConvert.DeserializeObject<HeroClass>(response.Content);               
+                Thread.Sleep(150);
+                response = client.Execute(request);
+            }
+            MessageBox.Show(response.Content);
+        }
+
+        // Не понадобиться - будет переделано отдельно для ГМа
         public MainMenu()
         {
             InitializeComponent();
 
             UserLoginTextBlock.Text = UserInfo.UserLogin;
         }
+        //
 
         public MainMenu(HeroClass hero)
         {    
@@ -30,6 +56,9 @@ namespace Dungeons_and_Dragons
 
             Hero = hero;
             UserLoginTextBlock.Text = UserInfo.UserLogin;
+
+            Thread FPS = new Thread(new ThreadStart(GetHero));
+            FPS.Start();
         }
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
@@ -65,6 +94,12 @@ namespace Dungeons_and_Dragons
         {
             Settings settWin = new Settings();
             settWin.ShowDialog();
+        }
+
+        private void Update_Click(object sender, RoutedEventArgs e)
+        {
+
+
         }
 
         private void DisconnectButton_Click(object sender, RoutedEventArgs e)
