@@ -4,9 +4,335 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Dungeons_and_Dragons"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        
+             mc:Ignorable="d"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             d:DesignHeight="1020" d:DesignWidth="1860" Background="White">
+    <Grid Margin="5 5">
+        <Grid VerticalAlignment="Top" Height="80">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                <TextBlock Text="Имя персонажа" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                <TextBlock Text="Класс и уровень" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                <TextBlock Text="Предыстория" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                <TextBlock Text="Имя игрока" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                <TextBlock Text="Раса" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="2" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                <TextBlock Text="Мировоззрение" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="3" Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                <TextBlock Text="Опыт" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <Grid Margin="0 85 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="410"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Column="0" Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Сила" HorizontalAlignment="Center"/>
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Ловкость" HorizontalAlignment="Center"/>
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Телосложение" HorizontalAlignment="Center"/>
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Интеллект" HorizontalAlignment="Center"/>
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Мудрость" HorizontalAlignment="Center"/>
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Харизма" HorizontalAlignment="Center"/>
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Margin="2.6,0,0,0">
+                    <StackPanel Grid.Row="1" Margin="0 10 0 0">
+                        <TextBlock Text="Навыки" TextAlignment="Center"/>
+                        <StackPanel>
+                            <TextBlock Text="Сила"/>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Атлетика" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 10 0 0">
+                            <TextBlock Text="Ловкость"/>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Акробатика" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Ловкость рук" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Скрытность" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 10 0 0">
+                            <TextBlock Text="Интеллект"/>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Магия" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="История" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Анализ" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Природа" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Религия" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 10 0 0">
+                            <TextBlock Text="Мудрость"/>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Уход за животными" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Проницательность" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Медицина" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Внимательность" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Выживание" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Margin="0 10 0 0">
+                            <TextBlock Text="Харизма"/>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Обман" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Запугивание" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Выступление" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBlock Text="Убеждение" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <StackPanel Grid.Row="0">
+                        <TextBlock Text="Спасброски" TextAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Сила" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Ловкость" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Телосложение" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Интеллект" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Мудрость" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Харизма" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="0" Grid.Row="3">
+                    <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock Text="Вдохновение" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock Text="Вдохновение" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        <TextBlock Text="Вдохновение" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0" Grid.RowSpan="2">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="КД" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Бонус мастерства" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0">
+                            <TextBlock Text="Текущие хиты" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" VerticalAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <TextBox materialDesign:HintAssist.Hint="" Text="qweas" TextAlignment="Center" VerticalAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            <TextBlock Text="Максимум" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <TextBlock Text="Спасброски от сметри" TextAlignment="Center"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
+                                <TextBlock Text="Успех" Margin="0 0 10 0" HorizontalAlignment="Left"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0 0 0">
+                                    <RadioButton Margin="5 0 5 0"/>
+                                    <RadioButton Margin="5 0 5 0"/>
+                                    <RadioButton Margin="5 0 5 0"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 5 0 0">
+                                <TextBlock Text="Провал" Margin="0 0 5 0" HorizontalAlignment="Left"/>
+                                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10 0 0 0">
+                                    <RadioButton Margin="0 0 5 0"/>
+                                    <RadioButton Margin="5 0 5 0"/>
+                                    <RadioButton Margin="5 0 5 0"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
     </Grid>
 </UserControl>
