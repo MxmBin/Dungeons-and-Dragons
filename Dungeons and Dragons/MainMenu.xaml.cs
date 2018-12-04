@@ -15,7 +15,7 @@ namespace Dungeons_and_Dragons
     public partial class MainMenu : Window
     {
         private static HeroClass Hero = new HeroClass();
-        Main charMain = new Main();
+        Main charMain = new Main(Hero);
         Inventory charInv = new Inventory();
 
         public static void GetHero()
@@ -56,7 +56,9 @@ namespace Dungeons_and_Dragons
 
             Hero = hero;
             UserLoginTextBlock.Text = UserInfo.UserLogin;
+            charMain = new Main(Hero);
 
+            GridMain.Children.Add(charMain);
             Thread FPS = new Thread(new ThreadStart(GetHero));
             FPS.Start();
         }
