@@ -13,7 +13,7 @@ namespace Dungeons_and_Dragons
         public static string UserSession { get; set; }
         public static string UserGame { get; set; }
         public static int UserRole { get; set; }
-        public static int UserHero { get; }
+        public static int UserHero { get; set; }
 
         public static void DisconnetcUser()
         {
@@ -21,6 +21,7 @@ namespace Dungeons_and_Dragons
             UserSession = "";
             UserGame = "";
             UserRole = 0;
+            UserHero = 0;
         }
     }
 }

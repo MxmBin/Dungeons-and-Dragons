@@ -12,5 +12,12 @@ namespace Dungeons_and_Dragons
         public int role { get; set; }
         public string game { get; set; }
         public HeroClass hero { get; set; }
+        public List<Heroes> heroes { get; set; }
+    }
+
+    class Heroes
+    {
+        public int id { get; set; }
+        public string name { get; set; }
     }
 }

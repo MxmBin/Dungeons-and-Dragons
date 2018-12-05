@@ -73,6 +73,16 @@ namespace Dungeons_and_Dragons
             response = client.Execute(request);
             return (response);
         }
+
+        public IRestResponse heroList(string login, string session)
+        {
+            request = new RestRequest("heroList", Method.GET);
+            request.AddParameter("login", login);
+            request.AddParameter("session", session);
+
+            response = client.Execute(request);
+            return (response);
+        }
     }
 
     class Request

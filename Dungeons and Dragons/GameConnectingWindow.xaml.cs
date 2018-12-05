@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using RestSharp;
 using Newtonsoft.Json;
-using Dungeons_and_Dragons.Classes;
 
 namespace Dungeons_and_Dragons
 {
@@ -16,8 +16,14 @@ namespace Dungeons_and_Dragons
             InitializeComponent();
 
             GreetingLabel.Content = "Добро пожаловать, " + UserInfo.UserLogin;
-            SessionTextBlock.Text = UserInfo.UserSession;
+            ClientClass client = new ClientClass();
+            IRestResponse response = client.heroList(UserInfo.UserLogin, UserInfo.UserSession);
+            if(response.IsSuccessful)
+            {
+                MessageBox.Show(response.Content);
+                ServerResponse serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
 
+            }           
         }
 
         private void LogOutButton_Click(object sender, RoutedEventArgs e)
@@ -31,12 +37,6 @@ namespace Dungeons_and_Dragons
         private void CloseConnection_Button(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
-        }
-
-        private void CopySession_Click(object sender, RoutedEventArgs e)
-        {
-            Clipboard.Clear();
-            Clipboard.SetText(SessionTextBlock.Text);
         }
 
         private void GameConnectingButton_Click(object sender, RoutedEventArgs e)
@@ -69,6 +69,13 @@ namespace Dungeons_and_Dragons
             {
                 MessageBox.Show(response.Content);
             }
+        }
+
+        private void Hero_Select(object sender, SelectionChangedEventArgs args)
+        {
+            ListBoxItem lbi = ((sender as ListBox).SelectedItem as ListBoxItem);
+            //UserInfo.UserHero = (int)lbi.Content;
+
         }
     }
 }
