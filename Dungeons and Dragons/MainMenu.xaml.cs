@@ -15,6 +15,7 @@ namespace Dungeons_and_Dragons
     public partial class MainMenu : Window
     {
         private static HeroClass Hero = new HeroClass();
+        Thread FPS;
         Main charMain = new Main(Hero);
         Inventory charInv = new Inventory();
 
@@ -41,15 +42,6 @@ namespace Dungeons_and_Dragons
             MessageBox.Show(response.Content);
         }
 
-        // Не понадобиться - будет переделано отдельно для ГМа
-        public MainMenu()
-        {
-            InitializeComponent();
-
-            UserLoginTextBlock.Text = UserInfo.UserLogin;
-        }
-        //
-
         public MainMenu(HeroClass hero)
         {    
             InitializeComponent();
@@ -59,7 +51,7 @@ namespace Dungeons_and_Dragons
             charMain = new Main(Hero);
 
             GridMain.Children.Add(charMain);
-            Thread FPS = new Thread(new ThreadStart(GetHero));
+            FPS = new Thread(new ThreadStart(GetHero));
             FPS.Start();
         }
 
@@ -98,12 +90,6 @@ namespace Dungeons_and_Dragons
             settWin.ShowDialog();
         }
 
-        private void Update_Click(object sender, RoutedEventArgs e)
-        {
-
-
-        }
-
         private void DisconnectButton_Click(object sender, RoutedEventArgs e)
         {
             var client = new RestClient();
@@ -121,6 +107,7 @@ namespace Dungeons_and_Dragons
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
+                FPS.Abort();
                 UserInfo.UserGame = "";
                 GameConnectingWindow connWin = new GameConnectingWindow();
                 Close();
@@ -130,6 +117,7 @@ namespace Dungeons_and_Dragons
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
+            FPS.Abort();
             Application.Current.Shutdown();
         }
     }
