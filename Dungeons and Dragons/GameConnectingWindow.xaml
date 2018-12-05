@@ -38,7 +38,7 @@
                     <materialDesign:PackIcon Kind="Games" Margin="0 0 8 0" Width="30" Height="30" VerticalAlignment="Center" Foreground="#707070"/>
                     <TextBlock Text="Создание игры" Margin="0 0 16 0" FontFamily="Segoe UI Black" FontSize="28" />
                 </StackPanel>
-                <Button x:Name="NewGameButton" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запуск" FontFamily="Monotype Corsiva" FontSize="24" Width="120" Height="40" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,10,0,0" FontWeight="Normal" Click="NewGameButton_Click"/>
+                <Button x:Name="NewGameButton" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Запуск" FontFamily="Monotype Corsiva" FontSize="24" Width="120" Height="40" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,10,0,0" FontWeight="Normal"/>
                 </StackPanel>
             <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <StackPanel Orientation="Horizontal">

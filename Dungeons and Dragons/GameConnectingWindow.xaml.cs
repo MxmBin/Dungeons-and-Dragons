@@ -39,30 +39,6 @@ namespace Dungeons_and_Dragons
             Clipboard.SetText(SessionTextBlock.Text);
         }
 
-        private void NewGameButton_Click(object sender, RoutedEventArgs e)
-        {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("http://localhost:8080/");
-            var request = new RestRequest();
-            request.RequestFormat = RestSharp.DataFormat.Json;
-
-            UserAccount usrAcc = new UserAccount();
-            usrAcc.auth.login = UserInfo.UserLogin;
-            usrAcc.auth.session = UserInfo.UserSession;
-            request = new RestRequest("newGame", Method.POST);
-            request.AddJsonBody(usrAcc);
-
-            IRestResponse response = client.Execute(request);
-            if (response.IsSuccessful)
-            {
-                var serverResponse = JsonConvert.DeserializeObject<ServerResponseNewGame>(response.Content);
-                UserInfo.UserGame = serverResponse.game;
-                MainMenu mainMenu = new MainMenu();
-                Close();
-                mainMenu.ShowDialog();
-            }
-        }
-
         private void GameConnectingButton_Click(object sender, RoutedEventArgs e)
         {
             var client = new RestClient();
@@ -70,7 +46,7 @@ namespace Dungeons_and_Dragons
             var request = new RestRequest();
             request.RequestFormat = RestSharp.DataFormat.Json;
 
-            UserAccount usrAcc = new UserAccount();
+            Request.UserAccount usrAcc = new Request.UserAccount();
             usrAcc.auth.login = UserInfo.UserLogin;
             usrAcc.auth.session = UserInfo.UserSession;
             usrAcc.game = GameKey.Text;

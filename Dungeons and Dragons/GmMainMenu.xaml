@@ -11,7 +11,7 @@
         <Rectangle RadiusY="10" RadiusX="10" Fill="#FFEEEEEE"/>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF307CD6">
             <TextBlock Text="Мастер игры" FontFamily="Segoe UI Black" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Center"/>
-            <Button x:Name="CloseSettigsButton" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Width="60" Height="60">
+            <Button x:Name="CloseGmMenuButton" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Width="60" Height="60" Click="CloseGmMenuButton_Click">
                 <materialDesign:PackIcon Kind="Close" Width="30" Height="30" />
             </Button>
         </Grid>

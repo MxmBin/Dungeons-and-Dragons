@@ -21,28 +21,16 @@ namespace Dungeons_and_Dragons
 
         private void Authorization_Button(object sender, RoutedEventArgs e)
         {
-            Auth auth = new Auth();
-            auth.login = loginText.Text;
+            string login = loginText.Text;
             string pass = passText.Password;
-            Md5Hash md5 = new Md5Hash();
-            //Получение хеша
-            auth.hash = md5.GetHash(pass);
 
-            //Отправка запроса на логирование
-            var client = new RestClient();
-            client.BaseUrl = new Uri("http://localhost:8080/");
-            var request = new RestRequest();
-            request.RequestFormat = RestSharp.DataFormat.Json;
-
-            request = new RestRequest("auth", Method.POST);
-            request.AddJsonBody(auth);
-
-            IRestResponse response = client.Execute(request);         
+            ClientClass client = new ClientClass();
+            IRestResponse response = client.Authorization(login, pass);
             if (response.IsSuccessful)
             {
                 // Запоминаем инфу юзера
-                var serverResponse = JsonConvert.DeserializeObject<ServerResponseAuth>(response.Content);
-                UserInfo.UserLogin = auth.login;
+                ServerResponse.ServerResponseAuth serverResponse = JsonConvert.DeserializeObject<ServerResponse.ServerResponseAuth>(response.Content);
+                UserInfo.UserLogin = login;
                 UserInfo.UserRole = serverResponse.role;
                 UserInfo.UserSession = serverResponse.session;
 
@@ -59,16 +47,16 @@ namespace Dungeons_and_Dragons
                     var client1 = new RestClient();
                     client1.BaseUrl = new Uri("http://localhost:8080/");
                     var request1 = new RestRequest();
-                    request.RequestFormat = RestSharp.DataFormat.Json;
+                    request1.RequestFormat = RestSharp.DataFormat.Json;
 
-                    UserAccount usrAcc = new UserAccount();
+                    Request.UserAccount usrAcc = new Request.UserAccount();
                     usrAcc.auth.login = UserInfo.UserLogin;
                     usrAcc.auth.session = UserInfo.UserSession;
 
-                    request = new RestRequest("connect", Method.POST);
-                    request.AddJsonBody(usrAcc);
+                    request1 = new RestRequest("connect", Method.POST);
+                    request1.AddJsonBody(usrAcc);
 
-                    IRestResponse response1 = client.Execute(request);
+                    IRestResponse response1 = client1.Execute(request1);
                     if (response1.IsSuccessful)
                     {
                         MessageBox.Show(response1.Content);
@@ -91,7 +79,7 @@ namespace Dungeons_and_Dragons
             else
             {
                 // Ошибка авторизации
-                MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ResponseStatus);
+                MessageBox.Show(response.Content);
             }
         }
 

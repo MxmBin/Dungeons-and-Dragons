@@ -83,8 +83,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\GameConnect.cs" />
-    <Compile Include="Classes\UserAccount.cs" />
     <Compile Include="Classes\HeroClass.cs" />
     <Compile Include="ClientClass.cs" />
     <Compile Include="GmConnect.xaml.cs">
@@ -93,9 +91,8 @@
     <Compile Include="GmMainMenu.xaml.cs">
       <DependentUpon>GmMainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ServerResponse.cs" />
     <Compile Include="UserInfo.cs" />
-    <Compile Include="Classes\Auth.cs" />
-    <Compile Include="Classes\ServerResponse.cs" />
     <Compile Include="Classes\Md5Hash.cs" />
     <Compile Include="MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>

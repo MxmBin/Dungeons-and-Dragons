@@ -39,7 +39,7 @@ namespace Dungeons_and_Dragons
             var request = new RestRequest();
             request.RequestFormat = RestSharp.DataFormat.Json;
 
-            Auth auth = new Auth();
+            Request.Auth auth = new Request.Auth();
             auth.login = loginText.Text;
             auth.hash = passText.Password;
             auth.token = "lol";

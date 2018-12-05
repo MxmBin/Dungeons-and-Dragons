@@ -111,7 +111,7 @@ namespace Dungeons_and_Dragons
             var request = new RestRequest();
             request.RequestFormat = RestSharp.DataFormat.Json;
 
-            UserAccount usrAcc = new UserAccount();
+            Request.UserAccount usrAcc = new Request.UserAccount();            
             usrAcc.auth.login = UserInfo.UserLogin;
             usrAcc.auth.session = UserInfo.UserSession;
 

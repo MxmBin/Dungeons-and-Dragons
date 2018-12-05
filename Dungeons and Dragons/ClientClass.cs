@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
+using Dungeons_and_Dragons.Classes;
 
 namespace Dungeons_and_Dragons
 {
@@ -22,6 +23,20 @@ namespace Dungeons_and_Dragons
             request.RequestFormat = DataFormat.Json;
         }
 
+        public IRestResponse Authorization(string login, string pass)
+        {
+            request = new RestRequest("auth", Method.POST);
+            Request.Auth reqBody = new Request.Auth();
+            reqBody.login = login;
+            //Получение хеша
+            Md5Hash md5 = new Md5Hash();
+            reqBody.hash = md5.GetHash(pass);
+            request.AddJsonBody(reqBody);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
         public IRestResponse newGame(string login, string session)
         {
             request = new RestRequest("newGame", Method.POST);
@@ -33,21 +48,6 @@ namespace Dungeons_and_Dragons
             response = client.Execute(request);
             return (response);
         }
-        //UserAccount usrAcc = new UserAccount();
-        //usrAcc.auth.login = UserInfo.UserLogin;
-        //    usrAcc.auth.session = UserInfo.UserSession;
-        //    request = new RestRequest("newGame", Method.POST);
-        //request.AddJsonBody(usrAcc);
-
-        //    IRestResponse response = client.Execute(request);
-        //    if (response.IsSuccessful)
-        //    {
-        //        var serverResponse = JsonConvert.DeserializeObject<ServerResponseNewGame>(response.Content);
-        //UserInfo.UserGame = serverResponse.game;
-        //        MainMenu mainMenu = new MainMenu();
-        //Close();
-        //mainMenu.ShowDialog();
-        //    }
     }
 
     class Request

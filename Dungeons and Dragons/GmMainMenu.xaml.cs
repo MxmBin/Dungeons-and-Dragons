@@ -31,5 +31,10 @@ namespace Dungeons_and_Dragons
             Clipboard.Clear();
             Clipboard.SetText(GameKeyTextBlock.Text);
         }
+
+        private void CloseGmMenuButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
