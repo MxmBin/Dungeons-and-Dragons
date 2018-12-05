@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace Dungeons_and_Dragons.Classes
 {
-    public class ServerResponse
+    public class ServerResponseAuth
     {
-        public string response { get; set; }
+        public string session { get; set; }
+        public int role { get; set; }
+    }
+
+    public class ServerResponseNewGame
+    {
+        public string game { get; set; }
     }
 }

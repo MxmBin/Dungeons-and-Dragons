@@ -12,6 +12,7 @@ namespace Dungeons_and_Dragons
         public static string UserLogin { get; set; }
         public static string UserSession { get; set; }
         public static string UserGame { get; set; }
+        public static int UserRole { get; set; }
 
         public static void DisconnetcUser()
         {

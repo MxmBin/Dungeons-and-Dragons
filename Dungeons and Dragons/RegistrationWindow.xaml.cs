@@ -49,7 +49,7 @@ namespace Dungeons_and_Dragons
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                var serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
+                //var serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
                 Close();
             }
             else

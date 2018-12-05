@@ -41,9 +41,10 @@ namespace Dungeons_and_Dragons
             if (response.IsSuccessful)
             {
                 // Запоминаем инфу юзера
-                var serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
+                var serverResponse = JsonConvert.DeserializeObject<ServerResponseAuth>(response.Content);
                 UserInfo.UserLogin = auth.login;
-                UserInfo.UserSession = serverResponse.response;
+                UserInfo.UserRole = serverResponse.role;
+                UserInfo.UserSession = serverResponse.session;
 
                 // Проверка на реконнект
                 var client1 = new RestClient();
@@ -54,8 +55,6 @@ namespace Dungeons_and_Dragons
                 UserAccount usrAcc = new UserAccount();
                 usrAcc.auth.login = UserInfo.UserLogin;
                 usrAcc.auth.session = UserInfo.UserSession;
-                //usrAcc.game = "";
-                //usrAcc.hero = 0; // Надо будет менять
 
                 request = new RestRequest("connect", Method.POST);
                 request.AddJsonBody(usrAcc);
@@ -63,6 +62,7 @@ namespace Dungeons_and_Dragons
                 IRestResponse response1 = client.Execute(request);
                 if (response1.IsSuccessful)
                 {
+                    MessageBox.Show(response1.Content);
                     // Переподключаемся к существующей игре
                     HeroClass hero = new HeroClass();
                     hero = JsonConvert.DeserializeObject<HeroClass>(response1.Content);

@@ -55,8 +55,8 @@ namespace Dungeons_and_Dragons
             IRestResponse response = client.Execute(request);
             if (response.IsSuccessful)
             {
-                var serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
-                UserInfo.UserGame = serverResponse.response;
+                var serverResponse = JsonConvert.DeserializeObject<ServerResponseNewGame>(response.Content);
+                UserInfo.UserGame = serverResponse.game;
                 MainMenu mainMenu = new MainMenu();
                 Close();
                 mainMenu.ShowDialog();
