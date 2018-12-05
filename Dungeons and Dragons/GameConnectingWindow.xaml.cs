@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using RestSharp;
 using Newtonsoft.Json;
+using System.Collections.ObjectModel;
 
 namespace Dungeons_and_Dragons
 {
@@ -11,6 +12,8 @@ namespace Dungeons_and_Dragons
     /// </summary>
     public partial class GameConnectingWindow : Window
     {
+        ServerResponse heroesResponse;
+
         public GameConnectingWindow()
         {
             InitializeComponent();
@@ -21,8 +24,13 @@ namespace Dungeons_and_Dragons
             if(response.IsSuccessful)
             {
                 MessageBox.Show(response.Content);
-                ServerResponse serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
-
+                heroesResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
+                foreach (Heroes hero in heroesResponse.heroes)
+                {
+                    ListBoxItem item = new ListBoxItem();
+                    item.Content = hero.name;
+                    heroID.Items.Add(item);
+                }
             }           
         }
 
@@ -50,7 +58,7 @@ namespace Dungeons_and_Dragons
             usrAcc.auth.login = UserInfo.UserLogin;
             usrAcc.auth.session = UserInfo.UserSession;
             usrAcc.game = GameKey.Text;
-            usrAcc.hero = 1; // Надо будет менять
+            usrAcc.hero = UserInfo.UserHero;
 
             request = new RestRequest("connect", Method.POST);
             request.AddJsonBody(usrAcc);
@@ -74,8 +82,14 @@ namespace Dungeons_and_Dragons
         private void Hero_Select(object sender, SelectionChangedEventArgs args)
         {
             ListBoxItem lbi = ((sender as ListBox).SelectedItem as ListBoxItem);
-            //UserInfo.UserHero = (int)lbi.Content;
-
+            foreach (Heroes hero in heroesResponse.heroes)
+            {
+                if (hero.name == lbi.Content.ToString())
+                {
+                    UserInfo.UserHero = hero.id;
+                    MessageBox.Show(UserInfo.UserHero.ToString());
+                }
+            }
         }
     }
 }
