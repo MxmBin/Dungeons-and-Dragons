@@ -46,37 +46,47 @@ namespace Dungeons_and_Dragons
                 UserInfo.UserRole = serverResponse.role;
                 UserInfo.UserSession = serverResponse.session;
 
-                // Проверка на реконнект
-                var client1 = new RestClient();
-                client1.BaseUrl = new Uri("http://localhost:8080/");
-                var request1 = new RestRequest();
-                request.RequestFormat = RestSharp.DataFormat.Json;
-
-                UserAccount usrAcc = new UserAccount();
-                usrAcc.auth.login = UserInfo.UserLogin;
-                usrAcc.auth.session = UserInfo.UserSession;
-
-                request = new RestRequest("connect", Method.POST);
-                request.AddJsonBody(usrAcc);
-
-                IRestResponse response1 = client.Execute(request);
-                if (response1.IsSuccessful)
+                // Поменять на case выборку роли
+                if (UserInfo.UserRole == 1)
                 {
-                    MessageBox.Show(response1.Content);
-                    // Переподключаемся к существующей игре
-                    HeroClass hero = new HeroClass();
-                    hero = JsonConvert.DeserializeObject<HeroClass>(response1.Content);
-                    MainMenu mainMenuWin = new MainMenu(hero);
+                    GmConnect gmConnectWin = new GmConnect();
                     Close();
-                    mainMenuWin.ShowDialog();
+                    gmConnectWin.ShowDialog();
                 }
                 else
                 {
-                    // Игры не существует
-                    GameConnectingWindow gameConnectingWindow = new GameConnectingWindow();
-                    Close();
-                    gameConnectingWindow.ShowDialog();
-                }             
+                    // Проверка на реконнект
+                    var client1 = new RestClient();
+                    client1.BaseUrl = new Uri("http://localhost:8080/");
+                    var request1 = new RestRequest();
+                    request.RequestFormat = RestSharp.DataFormat.Json;
+
+                    UserAccount usrAcc = new UserAccount();
+                    usrAcc.auth.login = UserInfo.UserLogin;
+                    usrAcc.auth.session = UserInfo.UserSession;
+
+                    request = new RestRequest("connect", Method.POST);
+                    request.AddJsonBody(usrAcc);
+
+                    IRestResponse response1 = client.Execute(request);
+                    if (response1.IsSuccessful)
+                    {
+                        MessageBox.Show(response1.Content);
+                        // Переподключаемся к существующей игре
+                        HeroClass hero = new HeroClass();
+                        hero = JsonConvert.DeserializeObject<HeroClass>(response1.Content);
+                        MainMenu mainMenuWin = new MainMenu(hero);
+                        Close();
+                        mainMenuWin.ShowDialog();
+                    }
+                    else
+                    {
+                        // Игры не существует
+                        GameConnectingWindow gameConnectingWindow = new GameConnectingWindow();
+                        Close();
+                        gameConnectingWindow.ShowDialog();
+                    }
+                }
             }
             else
             {

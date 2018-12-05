@@ -86,6 +86,13 @@
     <Compile Include="Classes\GameConnect.cs" />
     <Compile Include="Classes\UserAccount.cs" />
     <Compile Include="Classes\HeroClass.cs" />
+    <Compile Include="ClientClass.cs" />
+    <Compile Include="GmConnect.xaml.cs">
+      <DependentUpon>GmConnect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GmMainMenu.xaml.cs">
+      <DependentUpon>GmMainMenu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserInfo.cs" />
     <Compile Include="Classes\Auth.cs" />
     <Compile Include="Classes\ServerResponse.cs" />
@@ -120,6 +127,14 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="GmConnect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GmMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
