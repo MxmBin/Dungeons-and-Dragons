@@ -50,8 +50,8 @@ namespace Dungeons_and_Dragons
             if (response.IsSuccessful)
             {
                 MessageBox.Show(response.Content);
-                ServerResponse.ServerResponseNewGame serverResponse = JsonConvert.DeserializeObject<ServerResponse.ServerResponseNewGame>(response.Content);
-                UserInfo.UserGame = serverResponse.response;
+                ServerResponse serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
+                UserInfo.UserGame = serverResponse.game;
                 GmMainMenu gmMainWin = new GmMainMenu();
                 Close();
                 gmMainWin.ShowDialog();

@@ -1,10 +1,6 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using RestSharp;
-using RestSharp.Serializers;
-using Dungeons_and_Dragons.Classes;
 
 namespace Dungeons_and_Dragons
 {
@@ -24,61 +20,62 @@ namespace Dungeons_and_Dragons
             string login = loginText.Text;
             string pass = passText.Password;
 
+            // Посылаем запрос auth
             ClientClass client = new ClientClass();
             IRestResponse response = client.Authorization(login, pass);
             if (response.IsSuccessful)
             {
                 // Запоминаем инфу юзера
-                ServerResponse.ServerResponseAuth serverResponse = JsonConvert.DeserializeObject<ServerResponse.ServerResponseAuth>(response.Content);
+                ServerResponse serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
                 UserInfo.UserLogin = login;
                 UserInfo.UserRole = serverResponse.role;
                 UserInfo.UserSession = serverResponse.session;
 
-                // Поменять на case выборку роли
-                if (UserInfo.UserRole == 1)
+                User user = new User();
+                user.Login = login;
+                user.Session = serverResponse.session;
+                ClientClass clientReconnect = new ClientClass(); // Посылаем запрос connect
+                IRestResponse responseReconnect = clientReconnect.Connect(user, 0);
+                if (responseReconnect.IsSuccessful) // Проверка не реконнект
                 {
-                    GmConnect gmConnectWin = new GmConnect();
-                    Close();
-                    gmConnectWin.ShowDialog();
-                }
-                else
-                {
-                    // Проверка на реконнект
-                    var client1 = new RestClient();
-                    client1.BaseUrl = new Uri("http://localhost:8080/");
-                    var request1 = new RestRequest();
-                    request1.RequestFormat = RestSharp.DataFormat.Json;
-
-                    Request.UserAccount usrAcc = new Request.UserAccount();
-                    usrAcc.auth.login = UserInfo.UserLogin;
-                    usrAcc.auth.session = UserInfo.UserSession;
-
-                    request1 = new RestRequest("connect", Method.POST);
-                    request1.AddJsonBody(usrAcc);
-
-                    IRestResponse response1 = client1.Execute(request1);
-                    if (response1.IsSuccessful)
+                    ServerResponse serverResponseReconnect = JsonConvert.DeserializeObject<ServerResponse>(responseReconnect.Content);
+                    switch (UserInfo.UserRole)
                     {
-                        MessageBox.Show(response1.Content);
-                        // Переподключаемся к существующей игре
-                        HeroClass hero = new HeroClass();
-                        hero = JsonConvert.DeserializeObject<HeroClass>(response1.Content);
-                        MainMenu mainMenuWin = new MainMenu(hero);
-                        Close();
-                        mainMenuWin.ShowDialog();
+                        case 1:                            
+                            UserInfo.UserGame = serverResponseReconnect.game;
+                            GmConnect gmConnectWin = new GmConnect();
+                            Close();
+                            gmConnectWin.ShowDialog();
+                            break;
+                        case 2:
+                            HeroClass hero = new HeroClass();
+                            UserInfo.UserGame = serverResponseReconnect.game;
+                            hero = serverResponseReconnect.hero;
+                            MainMenu mainWin = new MainMenu(hero);
+                            Close();
+                            mainWin.ShowDialog();
+                            break;
                     }
-                    else
+                }
+                else // Игры не существует
+                {
+                    switch (UserInfo.UserRole)
                     {
-                        // Игры не существует
-                        GameConnectingWindow gameConnectingWindow = new GameConnectingWindow();
-                        Close();
-                        gameConnectingWindow.ShowDialog();
+                        case 1:
+                            GmConnect gmConnectWin = new GmConnect();
+                            Close();
+                            gmConnectWin.ShowDialog();
+                            break;
+                        case 2:
+                            GameConnectingWindow connectWin = new GameConnectingWindow();
+                            Close();
+                            connectWin.ShowDialog();
+                            break;
                     }
                 }
             }
-            else
+            else // Ошибка авторизации
             {
-                // Ошибка авторизации
                 MessageBox.Show(response.Content);
             }
         }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Dungeons_and_Dragons"
         mc:Ignorable="d"
        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-        Title="Registration" Height="350" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+        Title="Registration" Height="350" Width="650" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle RadiusY="10" RadiusX="10" Fill="#FFEEEEEE"/>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF307CD6">

@@ -13,11 +13,14 @@ namespace Dungeons_and_Dragons
         public static string UserSession { get; set; }
         public static string UserGame { get; set; }
         public static int UserRole { get; set; }
+        public static int UserHero { get; }
 
         public static void DisconnetcUser()
         {
             UserLogin = "";
             UserSession = "";
+            UserGame = "";
+            UserRole = 0;
         }
     }
 }

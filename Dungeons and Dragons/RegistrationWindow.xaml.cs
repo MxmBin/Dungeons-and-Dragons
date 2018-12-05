@@ -33,28 +33,21 @@ namespace Dungeons_and_Dragons
         }
 
         private void RegistrationButton_Click(object sender, RoutedEventArgs e)
-        {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("http://localhost:8080/");
-            var request = new RestRequest();
-            request.RequestFormat = RestSharp.DataFormat.Json;
+        {            
+            string login = loginText.Text;
+            string pass = passText.Password;
+            string token = "lol";
 
-            Request.Auth auth = new Request.Auth();
-            auth.login = loginText.Text;
-            auth.hash = passText.Password;
-            auth.token = "lol";
-            request = new RestRequest("reg", Method.POST);
-            request.AddJsonBody(auth);
-
-            IRestResponse response = client.Execute(request);
+            ClientClass client = new ClientClass();
+            IRestResponse response = client.Registration(login, pass, token);
             if (response.IsSuccessful)
             {
-                //var serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
+                MessageBox.Show("Регистрация прошла успешно");
                 Close();
             }
             else
             {
-                MessageBox.Show("Error Code" + response.StatusCode + " : Message - " + response.ResponseStatus);
+                MessageBox.Show(response.Content);
             }
         }
     }
