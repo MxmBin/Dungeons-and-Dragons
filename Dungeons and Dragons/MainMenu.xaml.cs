@@ -14,7 +14,7 @@ namespace Dungeons_and_Dragons
 
     public partial class MainMenu : Window
     {
-        private static HeroClass Hero = new HeroClass();
+        private static HeroCard Hero = new HeroCard();
         Thread FPS;
         Main charMain = new Main(Hero);
         Inventory charInv = new Inventory();
@@ -35,14 +35,14 @@ namespace Dungeons_and_Dragons
 
             while (response.IsSuccessful)
             {
-                Hero = JsonConvert.DeserializeObject<HeroClass>(response.Content);               
+                Hero = JsonConvert.DeserializeObject<HeroCard>(response.Content);               
                 Thread.Sleep(150);
                 response = client.Execute(request);
             }
             MessageBox.Show(response.Content);
         }
 
-        public MainMenu(HeroClass hero)
+        public MainMenu(HeroCard hero)
         {    
             InitializeComponent();
 

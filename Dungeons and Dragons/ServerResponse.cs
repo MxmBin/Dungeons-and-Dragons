@@ -11,7 +11,7 @@ namespace Dungeons_and_Dragons
         public string session { get; set; }
         public int role { get; set; }
         public string game { get; set; }
-        public HeroClass hero { get; set; }
+        public HeroCard hero { get; set; }
         public List<Heroes> heroes { get; set; }
     }
 

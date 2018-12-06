@@ -49,33 +49,27 @@ namespace Dungeons_and_Dragons
 
         private void GameConnectingButton_Click(object sender, RoutedEventArgs e)
         {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("http://localhost:8080/");
-            var request = new RestRequest();
-            request.RequestFormat = RestSharp.DataFormat.Json;
+            UserInfo.UserGame = GameKey.Text;
 
-            Request.UserAccount usrAcc = new Request.UserAccount();
-            usrAcc.auth.login = UserInfo.UserLogin;
-            usrAcc.auth.session = UserInfo.UserSession;
-            usrAcc.game = GameKey.Text;
-            usrAcc.hero = UserInfo.UserHero;
+            User user = new User();
+            user.Login = UserInfo.UserLogin;
+            user.Session = UserInfo.UserSession;
+            user.Game = UserInfo.UserGame;
+            ClientClass client = new ClientClass(); // Посылаем запрос connect
 
-            request = new RestRequest("connect", Method.POST);
-            request.AddJsonBody(usrAcc);
-
-            IRestResponse response = client.Execute(request);
-            if (response.IsSuccessful)
+            IRestResponse responseConnect = client.Connect(user, UserInfo.UserHero);
+            if (responseConnect.IsSuccessful)
             {
-                HeroClass hero = new HeroClass();
-                hero = JsonConvert.DeserializeObject<HeroClass>(response.Content);
-                UserInfo.UserGame = usrAcc.game;
+                ServerResponse serverResponse = JsonConvert.DeserializeObject<ServerResponse>(responseConnect.Content);
+                HeroCard hero = new HeroCard();
+                hero = serverResponse.hero;
                 MainMenu mainMenu = new MainMenu(hero);
                 Close();
                 mainMenu.ShowDialog();
             }
             else
             {
-                MessageBox.Show(response.Content);
+                MessageBox.Show(responseConnect.Content);
             }
         }
 
@@ -87,7 +81,6 @@ namespace Dungeons_and_Dragons
                 if (hero.name == lbi.Content.ToString())
                 {
                     UserInfo.UserHero = hero.id;
-                    MessageBox.Show(UserInfo.UserHero.ToString());
                 }
             }
         }

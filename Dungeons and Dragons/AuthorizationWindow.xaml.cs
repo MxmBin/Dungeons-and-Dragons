@@ -39,6 +39,7 @@ namespace Dungeons_and_Dragons
                 if (responseReconnect.IsSuccessful) // Проверка не реконнект
                 {
                     ServerResponse serverResponseReconnect = JsonConvert.DeserializeObject<ServerResponse>(responseReconnect.Content);
+                    MessageBox.Show(responseReconnect.Content);
                     switch (UserInfo.UserRole)
                     {
                         case 1:                            
@@ -48,7 +49,7 @@ namespace Dungeons_and_Dragons
                             gmConnectWin.ShowDialog();
                             break;
                         case 2:
-                            HeroClass hero = new HeroClass();
+                            HeroCard hero = new HeroCard();
                             UserInfo.UserGame = serverResponseReconnect.game;
                             hero = serverResponseReconnect.hero;
                             MainMenu mainWin = new MainMenu(hero);

@@ -21,32 +21,32 @@ namespace Dungeons_and_Dragons
     /// </summary>
     public partial class Main : UserControl
     {
-        public Main(HeroClass hero)
+        public Main(HeroCard hero)
         {
             InitializeComponent();
-            NameCharBox.Text = hero.Hero.heroInfo.name;
-            NamePlayerBox.Text = hero.Hero.heroInfo.prehistory;
-            ExpBox.Text = hero.Hero.heroInfo.exp.ToString();
-            ACBox.Text = hero.Hero.heroInfo.AC.ToString();
-            HpBox.Text = hero.Hero.heroInfo.hp.ToString();
-            HpMaxBox.Text = hero.Hero.heroInfo.hpmax.ToString();
-            HitBonesBox.Text = hero.Hero.heroInfo.HitBones.ToString();
-            HitBonesMaxBox.Text = hero.Hero.heroInfo.HitBonesMax.ToString();
-            MasterBonusBox.Text = hero.Hero.heroInfo.MasterBonus.ToString();
-            TemporaryHpBox.Text = hero.Hero.heroInfo.TemporaryHP.ToString();
-            Strenght.Text = hero.Hero.heroInfo.Strenght.ToString();
-            Agility.Text = hero.Hero.heroInfo.Agility.ToString();
-            EnduranceBox.Text = hero.Hero.heroInfo.Endurance.ToString();
-            Intelligence.Text = hero.Hero.heroInfo.Intelligence.ToString();
-            PerceptionBox.Text = hero.Hero.heroInfo.Perception.ToString();
-            CharismaBox.Text = hero.Hero.heroInfo.Charisma.ToString();
+            NameCharBox.Text = hero.heroInfo.name;
+            NamePlayerBox.Text = hero.heroInfo.prehistory;
+            ExpBox.Text = hero.heroInfo.exp.ToString();
+            ACBox.Text = hero.heroInfo.AC.ToString();
+            HpBox.Text = hero.heroInfo.hp.ToString();
+            HpMaxBox.Text = hero.heroInfo.hpmax.ToString();
+            HitBonesBox.Text = hero.heroInfo.HitBones.ToString();
+            HitBonesMaxBox.Text = hero.heroInfo.HitBonesMax.ToString();
+            MasterBonusBox.Text = hero.heroInfo.MasterBonus.ToString();
+            TemporaryHpBox.Text = hero.heroInfo.TemporaryHP.ToString();
+            Strenght.Text = hero.heroInfo.Strenght.ToString();
+            Agility.Text = hero.heroInfo.Agility.ToString();
+            EnduranceBox.Text = hero.heroInfo.Endurance.ToString();
+            Intelligence.Text = hero.heroInfo.Intelligence.ToString();
+            PerceptionBox.Text = hero.heroInfo.Perception.ToString();
+            CharismaBox.Text = hero.heroInfo.Charisma.ToString();
 
-            SavingThrowSRadio.IsChecked = hero.Hero.heroInfo.SavingThrowS;
-            SavingThrowARadio.IsChecked = hero.Hero.heroInfo.SavingThrowA;
-            SavingThrowERadio.IsChecked = hero.Hero.heroInfo.SavingThrowE;
-            SavingThrowIRadio.IsChecked = hero.Hero.heroInfo.SavingThrowI;
-            SavingThrowPRadio.IsChecked = hero.Hero.heroInfo.SavingThrowP;
-            SavingThrowCRadio.IsChecked = hero.Hero.heroInfo.SavingThrowC;
+            SavingThrowSRadio.IsChecked = hero.heroInfo.SavingThrowS;
+            SavingThrowARadio.IsChecked = hero.heroInfo.SavingThrowA;
+            SavingThrowERadio.IsChecked = hero.heroInfo.SavingThrowE;
+            SavingThrowIRadio.IsChecked = hero.heroInfo.SavingThrowI;
+            SavingThrowPRadio.IsChecked = hero.heroInfo.SavingThrowP;
+            SavingThrowCRadio.IsChecked = hero.heroInfo.SavingThrowC;
         }
     }
 }
