@@ -36,14 +36,14 @@ namespace Dungeons_and_Dragons
         {            
             string login = loginText.Text;
             string pass = passText.Password;
-            string token = "lol";
+            string token = "lol";  //Выяснить про токен
 
             ClientClass client = new ClientClass();
             IRestResponse response = client.Registration(login, pass, token);
             if (response.IsSuccessful)
-            {
-                MessageBox.Show("Регистрация прошла успешно");
+            {                
                 Close();
+                MessageBox.Show("Регистрация прошла успешно");
             }
             else
             {
