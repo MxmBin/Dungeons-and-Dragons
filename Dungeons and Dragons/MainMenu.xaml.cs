@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Threading;
+using System.ComponentModel;
 
 namespace Dungeons_and_Dragons
 {
@@ -15,32 +16,31 @@ namespace Dungeons_and_Dragons
     {
         private static HeroCard Hero = new HeroCard();
         Thread FPS;
-        Main charMain;
-        Status charStatus;
-        Inventory charInv = new Inventory();
-        Skills charSkills = new Skills();
+        public static Main charMain = new Main(Hero);
+        public static Status charStatus = new Status(Hero);
+        public static Inventory charInv = new Inventory();
+        public static Skills charSkills = new Skills();
 
         public static void GetHero()
         {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("http://localhost:8080/");
-            var request = new RestRequest();
-            request.RequestFormat = RestSharp.DataFormat.Json;
-
-            request = new RestRequest(UserInfo.UserGame + "/Hero", Method.GET);
-            request.AddParameter("login", UserInfo.UserLogin);
-            request.AddParameter("session", UserInfo.UserSession);
-
-            
-            IRestResponse response = client.Execute(request);
-
-            while (response.IsSuccessful)
+            ClientClass client = new ClientClass();
+            IRestResponse responseHero = client.Hero(UserInfo.UserLogin, UserInfo.UserSession, UserInfo.UserGame);
+            while (responseHero.IsSuccessful)
             {
-                Hero = JsonConvert.DeserializeObject<HeroCard>(response.Content);               
+                ServerResponse serverResponseHero = JsonConvert.DeserializeObject<ServerResponse>(responseHero.Content);
+                Hero = serverResponseHero.hero;
+                BackgroundWorker bgW = new BackgroundWorker();
+                bgW.DoWork += ListViewMenu_Update;
                 Thread.Sleep(150);
-                response = client.Execute(request);
+                responseHero = client.Hero(UserInfo.UserLogin, UserInfo.UserSession, UserInfo.UserGame);
             }
-            MessageBox.Show(response.Content);
+            MessageBox.Show(responseHero.Content);
+        }
+
+        static void ListViewMenu_Update(object sender, DoWorkEventArgs e)
+        {
+            charMain = new Main(Hero);
+            charStatus = new Status(Hero);
         }
 
         public MainMenu(HeroCard hero)
