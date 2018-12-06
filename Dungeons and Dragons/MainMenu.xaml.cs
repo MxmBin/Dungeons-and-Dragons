@@ -4,7 +4,6 @@ using System.Windows.Controls;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Threading;
-using Dungeons_and_Dragons.Classes;
 
 namespace Dungeons_and_Dragons
 {
@@ -16,8 +15,10 @@ namespace Dungeons_and_Dragons
     {
         private static HeroCard Hero = new HeroCard();
         Thread FPS;
-        Main charMain = new Main(Hero);
+        Main charMain;
+        Status charStatus;
         Inventory charInv = new Inventory();
+        Skills charSkills = new Skills();
 
         public static void GetHero()
         {
@@ -49,8 +50,9 @@ namespace Dungeons_and_Dragons
             Hero = hero;
             UserLoginTextBlock.Text = UserInfo.UserLogin;
             charMain = new Main(Hero);
-
+            charStatus = new Status(Hero);
             GridMain.Children.Add(charMain);
+
             FPS = new Thread(new ThreadStart(GetHero));
             FPS.Start();
         }
@@ -73,11 +75,17 @@ namespace Dungeons_and_Dragons
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
-                case "ItemHome":
+                case "Main":
                     GridMain.Children.Add(charMain);
                     break;
-                case "ItemCreate":
+                case "Status":
+                    GridMain.Children.Add(charStatus);
+                    break;
+                case "Inventory":
                     GridMain.Children.Add(charInv);
+                    break;
+                case "Skills":
+                    GridMain.Children.Add(charSkills);
                     break;
                 default:
                     break;

@@ -34,19 +34,6 @@ namespace Dungeons_and_Dragons
             HitBonesMaxBox.Text = hero.heroInfo.HitBonesMax.ToString();
             MasterBonusBox.Text = hero.heroInfo.MasterBonus.ToString();
             TemporaryHpBox.Text = hero.heroInfo.TemporaryHP.ToString();
-            Strenght.Text = hero.heroInfo.Strenght.ToString();
-            Agility.Text = hero.heroInfo.Agility.ToString();
-            EnduranceBox.Text = hero.heroInfo.Endurance.ToString();
-            Intelligence.Text = hero.heroInfo.Intelligence.ToString();
-            PerceptionBox.Text = hero.heroInfo.Perception.ToString();
-            CharismaBox.Text = hero.heroInfo.Charisma.ToString();
-
-            SavingThrowSRadio.IsChecked = hero.heroInfo.SavingThrowS;
-            SavingThrowARadio.IsChecked = hero.heroInfo.SavingThrowA;
-            SavingThrowERadio.IsChecked = hero.heroInfo.SavingThrowE;
-            SavingThrowIRadio.IsChecked = hero.heroInfo.SavingThrowI;
-            SavingThrowPRadio.IsChecked = hero.heroInfo.SavingThrowP;
-            SavingThrowCRadio.IsChecked = hero.heroInfo.SavingThrowC;
         }
     }
 }

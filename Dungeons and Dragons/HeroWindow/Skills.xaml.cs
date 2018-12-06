@@ -12,17 +12,15 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Net.Http;
-using System.Net.Http.Headers;
 
 namespace Dungeons_and_Dragons
 {
     /// <summary>
-    /// Логика взаимодействия для UserControl2.xaml
+    /// Логика взаимодействия для Skills.xaml
     /// </summary>
-    public partial class Inventory : UserControl
+    public partial class Skills : UserControl
     {
-        public Inventory()
+        public Skills()
         {
             InitializeComponent();
         }

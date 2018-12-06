@@ -5,8 +5,111 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Dungeons_and_Dragons"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
-        <ListBox Name="List"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+             Background="White">
+    <Grid>
+        <GroupBox Header="Экипировка">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Снаряжение" Margin="10 10 10 10">
+                    <StackPanel>
+                        <GroupBox Header="Доспех">
+                            <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Щит">
+                            <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Дополнительные предметы">
+                            <ListBox/>
+                        </GroupBox>
+                    </StackPanel>
+                </GroupBox>
+                <GroupBox Header="Оружие" Margin="10 10 10 10">
+                    <StackPanel HorizontalAlignment="Center">
+                        <GroupBox Header="Правая рука">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Левая рука">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Дальнобойное">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Дополнительное">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="70" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <StackPanel Orientation="Horizontal" Margin="10 10 0 0">
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="60" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="40" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Расходники">
+                            <ListBox/>
+                        </GroupBox>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </UserControl>

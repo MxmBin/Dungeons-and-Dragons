@@ -21,16 +21,6 @@ namespace Dungeons_and_Dragons
         public string name { get; set; }
     }
 
-    //class HeroClass
-    //{
-    //    public HeroCard Hero;
-
-    //    public HeroClass()
-    //    {
-    //        Hero = new HeroCard();
-    //    }
-    //}
-
     public class HeroCard
     {
         public HeroInfo heroInfo;

@@ -91,6 +91,12 @@
     <Compile Include="GmMainMenu.xaml.cs">
       <DependentUpon>GmMainMenu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HeroWindow\Skills.xaml.cs">
+      <DependentUpon>Skills.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeroWindow\Status.xaml.cs">
+      <DependentUpon>Status.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ServerResponse.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Classes\Md5Hash.cs" />
@@ -129,6 +135,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GmMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeroWindow\Skills.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeroWindow\Status.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

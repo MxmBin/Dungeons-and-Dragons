@@ -73,25 +73,25 @@
                     </Button>
                 </Grid>
                 <ListView x:Name="ListViewMenu" Foreground="#FF5C99D6" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListViewMenu_SelectionChanged">
-                    <ListViewItem x:Name="ItemHome" Height="60">
+                    <ListViewItem x:Name="Main" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="AccountCircle" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Основное" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem x:Name="ItemCreate" Height="60">
+                    <ListViewItem x:Name="Status" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="AccountCardDetails" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Характеристики" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="Inventory" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="TreasureChest" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Инвентарь" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem x:Name="Skills" Height="60">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="YinYang" Height="25" Width="25" Margin="10"/>
                             <TextBlock Text="Навыки" VerticalAlignment="Center"  Margin="20 10"/>

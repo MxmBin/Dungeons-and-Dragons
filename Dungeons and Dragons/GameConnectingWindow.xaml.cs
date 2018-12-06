@@ -23,7 +23,6 @@ namespace Dungeons_and_Dragons
             IRestResponse response = client.heroList(UserInfo.UserLogin, UserInfo.UserSession);
             if(response.IsSuccessful)
             {
-                MessageBox.Show(response.Content);
                 heroesResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
                 foreach (Heroes hero in heroesResponse.heroes)
                 {
@@ -31,7 +30,11 @@ namespace Dungeons_and_Dragons
                     item.Content = hero.name;
                     heroID.Items.Add(item);
                 }
-            }           
+            }
+            else
+            {
+                MessageBox.Show(response.Content);
+            }
         }
 
         private void LogOutButton_Click(object sender, RoutedEventArgs e)
@@ -55,8 +58,8 @@ namespace Dungeons_and_Dragons
             user.Login = UserInfo.UserLogin;
             user.Session = UserInfo.UserSession;
             user.Game = UserInfo.UserGame;
-            ClientClass client = new ClientClass(); // Посылаем запрос connect
 
+            ClientClass client = new ClientClass(); // Посылаем запрос connect
             IRestResponse responseConnect = client.Connect(user, UserInfo.UserHero);
             if (responseConnect.IsSuccessful)
             {
