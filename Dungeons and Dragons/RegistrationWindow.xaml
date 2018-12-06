@@ -24,6 +24,10 @@
                 <materialDesign:PackIcon Kind="Key" VerticalAlignment="Center" Foreground="#707070"/>
                 <PasswordBox x:Name="passText" materialDesign:HintAssist.Hint="Пароль" Width="250" Margin="5"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <RadioButton GroupName="SelectRole" x:Name="PlayerRadio" IsChecked="True" Content="Игрок" FontFamily="Segoe UI Black" FontSize="12" Margin="10 0"/>
+                <RadioButton GroupName="SelectRole" x:Name="GMRadio" Content="Гейм мастер" FontFamily="Segoe UI Black" FontSize="12" Margin="10 0"/>
+            </StackPanel>
             <Button x:Name="RegistrationButton" HorizontalAlignment="Center" Content="Регистрация" FontFamily="Monotype Corsiva" FontSize="24" Width="150" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,20,0,0" VerticalAlignment="Center" FontWeight="Normal" Click="RegistrationButton_Click"/>
         </StackPanel>
     </Grid>

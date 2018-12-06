@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              Background="White">
     <Grid>
-        <GroupBox Header="Основные характеристики">
+        <GroupBox Header="Основные характеристики" HorizontalAlignment="Center">
             <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <GroupBox Header="Характеристики" Margin="10 10 10 10">

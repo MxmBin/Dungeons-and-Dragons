@@ -36,14 +36,25 @@ namespace Dungeons_and_Dragons
         {            
             string login = loginText.Text;
             string pass = passText.Password;
-            string token = "lol";  //Выяснить про токен
+            string token = "";
+            if (GMRadio.IsChecked.Value)
+            {
+                token = "lol";  //Выяснить про токен
+            }          
 
             ClientClass client = new ClientClass();
             IRestResponse response = client.Registration(login, pass, token);
             if (response.IsSuccessful)
             {                
                 Close();
-                MessageBox.Show("Регистрация прошла успешно");
+                if (PlayerRadio.IsChecked.Value)
+                {
+                    MessageBox.Show("Регистрация игрока прошла успешно");
+                }
+                else
+                {
+                    MessageBox.Show("Регистрация гейм мастера прошла успешно");
+                }               
             }
             else
             {
