@@ -20,7 +20,7 @@ namespace Dungeons_and_Dragons
     /// </summary>
     public partial class Skills : UserControl
     {
-        public Skills()
+        public Skills(ref HeroCard hero)
         {
             InitializeComponent();
         }

@@ -22,7 +22,7 @@ namespace Dungeons_and_Dragons
     /// </summary>
     public partial class Inventory : UserControl
     {
-        public Inventory()
+        public Inventory(ref HeroCard hero)
         {
             InitializeComponent();
         }

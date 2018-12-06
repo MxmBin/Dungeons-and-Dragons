@@ -74,6 +74,18 @@ namespace Dungeons_and_Dragons
             return (response);
         }
 
+        public IRestResponse DelConnect(string login, string session)
+        {
+            request = new RestRequest("connect", Method.DELETE);
+            Request.UserAccount reqBody = new Request.UserAccount();
+            reqBody.auth.login = login;
+            reqBody.auth.session = session;
+            request.AddJsonBody(reqBody);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
         public IRestResponse heroList(string login, string session)
         {
             request = new RestRequest("heroList", Method.GET);
@@ -89,6 +101,17 @@ namespace Dungeons_and_Dragons
             request = new RestRequest(game + "/Hero", Method.GET);
             request.AddParameter("login", login);
             request.AddParameter("session", session);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
+        public IRestResponse saveHero(string game, string login, string session, HeroCard hero)
+        {
+            request = new RestRequest(game + "/SaveHero", Method.PATCH);
+            request.AddParameter("login", login);
+            request.AddParameter("session", session);
+            request.AddJsonBody(hero);
 
             response = client.Execute(request);
             return (response);

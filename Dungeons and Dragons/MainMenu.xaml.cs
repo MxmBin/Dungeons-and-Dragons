@@ -16,10 +16,10 @@ namespace Dungeons_and_Dragons
     {
         private static HeroCard Hero = new HeroCard();
         Thread FPS;
-        public static Main charMain = new Main(Hero);
-        public static Status charStatus = new Status(Hero);
-        public static Inventory charInv = new Inventory();
-        public static Skills charSkills = new Skills();
+        public static Main charMain = new Main(ref Hero);
+        public static Status charStatus = new Status(ref Hero);
+        public static Inventory charInv = new Inventory(ref Hero);
+        public static Skills charSkills = new Skills(ref Hero);
 
         public static void GetHero()
         {
@@ -29,18 +29,10 @@ namespace Dungeons_and_Dragons
             {
                 ServerResponse serverResponseHero = JsonConvert.DeserializeObject<ServerResponse>(responseHero.Content);
                 Hero = serverResponseHero.hero;
-                BackgroundWorker bgW = new BackgroundWorker();
-                bgW.DoWork += ListViewMenu_Update;
                 Thread.Sleep(150);
                 responseHero = client.Hero(UserInfo.UserLogin, UserInfo.UserSession, UserInfo.UserGame);
             }
             MessageBox.Show(responseHero.Content);
-        }
-
-        static void ListViewMenu_Update(object sender, DoWorkEventArgs e)
-        {
-            charMain = new Main(Hero);
-            charStatus = new Status(Hero);
         }
 
         public MainMenu(HeroCard hero)
@@ -49,8 +41,10 @@ namespace Dungeons_and_Dragons
 
             Hero = hero;
             UserLoginTextBlock.Text = UserInfo.UserLogin;
-            charMain = new Main(Hero);
-            charStatus = new Status(Hero);
+            charMain = new Main(ref Hero);
+            charStatus = new Status(ref Hero);
+            charInv = new Inventory(ref Hero);
+            charSkills = new Skills(ref Hero);
             GridMain.Children.Add(charMain);
 
             FPS = new Thread(new ThreadStart(GetHero));
@@ -100,19 +94,8 @@ namespace Dungeons_and_Dragons
 
         private void DisconnectButton_Click(object sender, RoutedEventArgs e)
         {
-            var client = new RestClient();
-            client.BaseUrl = new Uri("http://localhost:8080/");
-            var request = new RestRequest();
-            request.RequestFormat = RestSharp.DataFormat.Json;
-
-            Request.UserAccount usrAcc = new Request.UserAccount();            
-            usrAcc.auth.login = UserInfo.UserLogin;
-            usrAcc.auth.session = UserInfo.UserSession;
-
-            request = new RestRequest("connect", Method.DELETE);
-            request.AddJsonBody(usrAcc);
-
-            IRestResponse response = client.Execute(request);
+            ClientClass client = new ClientClass();
+            IRestResponse response = client.DelConnect(UserInfo.UserLogin, UserInfo.UserSession);
             if (response.IsSuccessful)
             {
                 FPS.Abort();
@@ -121,12 +104,25 @@ namespace Dungeons_and_Dragons
                 Close();
                 connWin.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show(response.Content);
+            }
         }
 
         private void ExitButton_Click(object sender, RoutedEventArgs e)
         {
-            FPS.Abort();
-            Application.Current.Shutdown();
+            ClientClass client = new ClientClass();
+            IRestResponse response = client.DelConnect(UserInfo.UserLogin, UserInfo.UserSession);
+            if (response.IsSuccessful)
+            {
+                FPS.Abort();
+                Application.Current.Shutdown();
+            }
+            else
+            {
+                MessageBox.Show(response.Content);
+            }
         }
     }
 }

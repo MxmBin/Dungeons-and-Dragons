@@ -1,9 +1,7 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using RestSharp;
 using Newtonsoft.Json;
-using System.Collections.ObjectModel;
 
 namespace Dungeons_and_Dragons
 {
@@ -24,12 +22,21 @@ namespace Dungeons_and_Dragons
             if(response.IsSuccessful)
             {
                 heroesResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
-                foreach (Heroes hero in heroesResponse.heroes)
+                if (heroesResponse.heroes != null)
                 {
-                    ListBoxItem item = new ListBoxItem();
-                    item.Content = hero.name;
-                    heroID.Items.Add(item);
-                }
+                    bool firstItem = true;
+                    foreach (Heroes hero in heroesResponse.heroes)
+                    {
+                        ListBoxItem item = new ListBoxItem();
+                        item.Content = hero.name;
+                        if (firstItem)
+                        {
+                            item.IsSelected = true;
+                        }
+                        heroID.Items.Add(item);
+                        firstItem = false;
+                    }
+                }              
             }
             else
             {

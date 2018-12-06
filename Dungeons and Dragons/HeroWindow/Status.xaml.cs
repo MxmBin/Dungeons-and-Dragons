@@ -20,7 +20,7 @@ namespace Dungeons_and_Dragons
     /// </summary>
     public partial class Status : UserControl
     {
-        public Status(HeroCard hero)
+        public Status(ref HeroCard hero)
         {
             InitializeComponent();
 

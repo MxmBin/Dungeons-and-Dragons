@@ -8,14 +8,14 @@
              Background="White">
     <Grid>
         <GroupBox Header="Навыки и черты">
-            <StackPanel>
-                <GroupBox Header="Основные">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Основные" Margin="10 10 10 10">
                     <ListBox/>
                 </GroupBox>
-                <GroupBox Header="Классовые">
+                <GroupBox Header="Классовые" Margin="10 10 10 10">
                     <ListBox/>
                 </GroupBox>
-                <GroupBox Header="Прочие">
+                <GroupBox Header="Прочие" Margin="10 10 10 10">
                     <ListBox/>
                 </GroupBox>
             </StackPanel>
