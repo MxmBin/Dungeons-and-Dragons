@@ -42,9 +42,9 @@
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
                     <StackPanel Width="150">
                         <Button x:Name="SettigsButton" Content="Настройки" Click="SettingsButton_Click"/>
-                        <Button Content="Аккаунт"/>
+                        <Button x:Name="Manual" Content="Справочник" Click="Manual_Click"/>
                         <Separator/>
-                        <Button x:Name="DisconnectButton" Content="Отсоединиться от игры" Click="DisconnectButton_Click" />
+                        <Button x:Name="DisconnectButton" Content="Отсоединиться" Click="DisconnectButton_Click" />
                         <Button x:Name="ExitButton" Content="Выход" Click="ExitButton_Click"/>
                     </StackPanel>
                 </materialDesign:PopupBox>

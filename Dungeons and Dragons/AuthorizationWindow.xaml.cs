@@ -25,6 +25,17 @@ namespace Dungeons_and_Dragons
             IRestResponse response = client.Authorization(login, pass);
             if (response.IsSuccessful)
             {
+                ClientClass clientManual = new ClientClass();
+                IRestResponse responseManual = client.Manual();
+                if (responseManual.IsSuccessful)
+                {
+                    ManualInf.manual = JsonConvert.DeserializeObject<Manual>(responseManual.Content);
+                }
+                else
+                {
+                    MessageBox.Show(responseManual.Content);
+                }
+
                 // Запоминаем инфу юзера
                 ServerResponse serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
                 UserInfo.UserLogin = login;
@@ -36,10 +47,9 @@ namespace Dungeons_and_Dragons
                 user.Session = serverResponse.session;
                 ClientClass clientReconnect = new ClientClass(); // Посылаем запрос connect
                 IRestResponse responseReconnect = clientReconnect.Connect(user, 0);
-                if (responseReconnect.IsSuccessful) // Проверка не реконнект
+                if (responseReconnect.IsSuccessful) // Проверка на реконнект
                 {
                     ServerResponse serverResponseReconnect = JsonConvert.DeserializeObject<ServerResponse>(responseReconnect.Content);
-                    MessageBox.Show(responseReconnect.Content);
                     switch (UserInfo.UserRole)
                     {
                         case 1:                            

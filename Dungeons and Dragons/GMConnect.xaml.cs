@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using RestSharp;
-using Dungeons_and_Dragons.Classes;
 using Newtonsoft.Json;
 
 namespace Dungeons_and_Dragons
@@ -49,7 +48,6 @@ namespace Dungeons_and_Dragons
 
             if (response.IsSuccessful)
             {
-                MessageBox.Show(response.Content);
                 ServerResponse serverResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
                 UserInfo.UserGame = serverResponse.game;
                 GmMainMenu gmMainWin = new GmMainMenu();

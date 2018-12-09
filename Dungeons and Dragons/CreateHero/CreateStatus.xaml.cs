@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Dungeons_and_Dragons
 {
     /// <summary>
-    /// Логика взаимодействия для Skills.xaml
+    /// Логика взаимодействия для CreateStatus.xaml
     /// </summary>
-    public partial class Skills : UserControl
+    public partial class CreateStatus : UserControl
     {
-        public Skills(ref ReqHero hero)
+        public CreateStatus()
         {
             InitializeComponent();
         }

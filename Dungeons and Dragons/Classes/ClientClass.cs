@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
 using RestSharp;
-using Dungeons_and_Dragons.Classes;
 
 namespace Dungeons_and_Dragons
 {
@@ -60,6 +60,18 @@ namespace Dungeons_and_Dragons
             return (response);
         }
 
+        public IRestResponse delGame(string login, string session)
+        {
+            request = new RestRequest("newGame", Method.DELETE);
+            Request.UserAccount reqBody = new Request.UserAccount();
+            reqBody.auth.login = login;
+            reqBody.auth.session = session;
+            request.AddJsonBody(reqBody);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
         public IRestResponse Connect(User user, int hero)
         {
             request = new RestRequest("connect", Method.POST);
@@ -106,12 +118,64 @@ namespace Dungeons_and_Dragons
             return (response);
         }
 
-        public IRestResponse saveHero(string game, string login, string session, HeroCard hero)
+        public IRestResponse saveHero(string game, string login, string session, ReqHero hero)
         {
-            request = new RestRequest(game + "/SaveHero", Method.PATCH);
+            request = new RestRequest(game + "/SaveHero?login="+login+"&session="+session, Method.PATCH);
+            request.AddJsonBody(hero);
+
+            IRestResponse response = client.Execute(request);
+            return (response);
+        }
+
+        public IRestResponse Games(string login, string session)
+        {
+            request = new RestRequest("games", Method.GET);
             request.AddParameter("login", login);
             request.AddParameter("session", session);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
+        public IRestResponse Loot(string login, string session, string game, RootObject loot)
+        {
+            request = new RestRequest(game + "/Loot?login=" + login + "&session=" + session, Method.POST);
+            request.AddJsonBody(loot);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
+        public IRestResponse DelLoot(string login, string session, string game)
+        {
+            request = new RestRequest(game + "/Loot?login=" + login + "&session=" + session, Method.DELETE);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
+        public IRestResponse OthersPlayers(string login, string session, string game)
+        {
+            request = new RestRequest(game + "/Other", Method.GET);
+            request.AddParameter("login", login);
+            request.AddParameter("session", session);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
+        public IRestResponse newHero(string login, string session, ReqHero hero)
+        {
+            request = new RestRequest("newHero?login=" + login + "&session=" + session, Method.POST);
             request.AddJsonBody(hero);
+
+            response = client.Execute(request);
+            return (response);
+        }
+
+        public IRestResponse Manual()
+        {
+            request = new RestRequest("manual", Method.GET);
 
             response = client.Execute(request);
             return (response);
@@ -136,7 +200,7 @@ namespace Dungeons_and_Dragons
 
             public UserAccount()
             {
-                this.auth = new Auth();
+                auth = new Auth();
             }
         }
 
@@ -147,6 +211,49 @@ namespace Dungeons_and_Dragons
         }
     }
 
+    
+
+    class RootObject
+    {
+        public Loot loot { get; set; }
+
+        public RootObject()
+        {
+            loot = new Loot();
+        }
+
+        public class Loot
+        {
+            public List<Weapon> weapons { get; set; }
+            public List<Item> items { get; set; }
+            public List<Armor> armors { get; set; }
+
+            public Loot()
+            {
+                weapons = new List<Weapon>();
+                items = new List<Item>();
+                armors = new List<Armor>();
+            }
+        }
+
+        public class Weapon
+        {
+            public int id { get; set; }
+            public int count { get; set; }
+        }
+
+        public class Item
+        {
+            public int id { get; set; }
+            public int count { get; set; }
+        }
+
+        public class Armor
+        {
+            public int id { get; set; }
+        }       
+    }
+    
     class User
     {
         public string Login { get; set; }

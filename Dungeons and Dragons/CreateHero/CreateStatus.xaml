@@ -1,0 +1,200 @@
+﻿<UserControl x:Class="Dungeons_and_Dragons.CreateStatus"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Dungeons_and_Dragons"
+             mc:Ignorable="d" 
+             Background="White">
+    <Grid>
+        <GroupBox Header="Основные характеристики" HorizontalAlignment="Center">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <GroupBox Header="Характеристики" Margin="10 10 10 10">
+                        <StackPanel>
+                            <StackPanel>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="Сила" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="Strenght" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand"/>
+                                    <TextBlock/>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="Ловкость" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="Agility" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand"/>
+                                    <TextBlock/>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="Телосложение" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="EnduranceBox" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand"/>
+                                    <TextBlock/>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="Интеллект" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="Intelligence" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand"/>
+                                    <TextBlock/>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="Мудрость" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="PerceptionBox" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand"/>
+                                    <TextBlock/>
+                                </StackPanel>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock Text="Харизма" HorizontalAlignment="Center"/>
+                                    <TextBox x:Name="CharismaBox" TextAlignment="Center" Width="100" SelectionOpacity="0" Cursor="Hand"/>
+                                    <TextBlock/>
+                                </StackPanel>
+                            </StackPanel>
+                            <GroupBox Header="Спасброски">
+                                <StackPanel>
+                                    <StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="SavingThrowSRadio" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                            <TextBlock Text="Сила" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="SavingThrowARadio" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                            <TextBlock Text="Ловкость" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="SavingThrowERadio" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                            <TextBlock Text="Телосложение" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="SavingThrowIRadio" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                            <TextBlock Text="Интеллект" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="SavingThrowPRadio" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                            <TextBlock Text="Мудрость" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                        <StackPanel Orientation="Horizontal">
+                                            <RadioButton x:Name="SavingThrowCRadio" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                            <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                            <TextBlock Text="Харизма" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </GroupBox>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="Навыки" Margin="10 10 10 10">
+                        <StackPanel>
+                            <StackPanel Margin="10 10 10 0">
+                                <StackPanel>
+                                    <TextBlock Text="Сила"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Атлетика" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0 10 0 0">
+                                    <TextBlock Text="Ловкость"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Акробатика" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Ловкость рук" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Скрытность" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0 10 0 0">
+                                    <TextBlock Text="Интеллект"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Магия" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="История" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Анализ" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Природа" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Религия" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0 10 0 0">
+                                    <TextBlock Text="Мудрость"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Уход за животными" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Проницательность" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Медицина" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Внимательность" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Выживание" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel Margin="0 10 0 0">
+                                    <TextBlock Text="Харизма"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Обман" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Запугивание" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Выступление" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <RadioButton VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBox TextAlignment="Center" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Center" Width="20" SelectionOpacity="0" Cursor="Hand"/>
+                                        <TextBlock Text="Убеждение" TextAlignment="Center" Margin="10 0 0 0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+</UserControl>

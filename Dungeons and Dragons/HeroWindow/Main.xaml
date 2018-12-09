@@ -45,7 +45,7 @@
                                                 <TextBlock Text="Мировоззрение" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                             <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBox x:Name="ExpBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand"/>
+                                                <TextBox x:Name="ExpBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" MouseDoubleClick="ExpBox_MouseDoubleClick"/>
                                                 <TextBlock Text="Опыт" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                         </StackPanel>

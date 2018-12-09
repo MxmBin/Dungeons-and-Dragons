@@ -6,16 +6,19 @@
         xmlns:local="clr-namespace:Dungeons_and_Dragons"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
-        Title="Registration" Height="350" Width="500" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
+        Title="Registration" Height="350" Width="700" ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen">
     <Grid>
         <Rectangle RadiusY="10" RadiusX="10" Fill="#FFEEEEEE"/>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF307CD6">
             <TextBlock Text="Мастер игры" FontFamily="Segoe UI Black" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Button x:Name="LogOutButton" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 60 0" Background="{x:Null}" BorderBrush="{x:Null}" Width="60" Height="60" Click="LogOutButton_Click">
+                <materialDesign:PackIcon Kind="ExitRun" Width="30" Height="30" />
+            </Button>
             <Button x:Name="CloseGmMenuButton" HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Width="60" Height="60" Click="CloseGmMenuButton_Click">
                 <materialDesign:PackIcon Kind="Close" Width="30" Height="30" />
             </Button>
         </Grid>
-        <StackPanel Margin="10 60 10 10" VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel Margin="10 60 10 10" VerticalAlignment="Center" HorizontalAlignment="Left">
             <StackPanel Margin="0,15" HorizontalAlignment="Center">
                 <StackPanel Orientation="Horizontal">
                     <materialDesign:PackIcon Kind="Key" Margin="0 0 8 0" Height="30" Width="30" VerticalAlignment="Center" Foreground="#707070"/>
@@ -23,6 +26,19 @@
                 </StackPanel>
                 <TextBox x:Name="GameKeyTextBlock" HorizontalAlignment="Center" IsReadOnly="True" FontFamily="Segoe UI Black" FontSize="14" FontStyle="Italic"/>
                 <Button x:Name="CopyKey" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Скопировать" FontFamily="Monotype Corsiva" FontSize="24" Width="180" Height="40" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,10,0,0" FontWeight="Normal" Click="CopyKey_Click"/>
+            </StackPanel>
+            <Button x:Name="LootButton" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Лут" FontFamily="Monotype Corsiva" FontSize="24" Width="180" Height="40" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,10,0,0" FontWeight="Normal" Click="LootButton_Click"/>
+            <Button x:Name="DeleteLootButton" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Удаление лута" FontFamily="Monotype Corsiva" FontSize="24" Width="180" Height="40" Background="#FF307CD6" BorderBrush="#FF307CD6" Margin="0,10,0,0" FontWeight="Normal" Click="DeleteLootButton_Click"/>
+        </StackPanel>
+        <StackPanel Margin=" 10 70 30 10" VerticalAlignment="Top" HorizontalAlignment="Right">
+            <StackPanel VerticalAlignment="Center">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <materialDesign:PackIcon Kind="Lan" Margin="0 0 8 0" Width="30" Height="30" VerticalAlignment="Center" Foreground="#707070"/>
+                        <TextBlock Text="Игроки в сессии" TextAlignment="Center" Margin="0 0 16 0" FontFamily="Segoe UI Black" FontSize="28" />
+                    </StackPanel>
+                    <ListBox Name="PlayerList" SelectionMode="Extended"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

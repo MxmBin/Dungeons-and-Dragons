@@ -11,14 +11,39 @@ namespace Dungeons_and_Dragons
         public string session { get; set; }
         public int role { get; set; }
         public string game { get; set; }
+        public Dictionary<string, int> games { get; set; }
         public HeroCard hero { get; set; }
         public List<Heroes> heroes { get; set; }
+        public List<OtherPlayers> OtherPlayers { get; set; }
+    }
+
+    class OtherPlayers
+    {
+        public string login { get; set; }
+        public HeroCard hero { get; set; }
+    }
+
+    class Games
+    {
+        public string session { get; set; }
+        public int nubmer { get; set; }
     }
 
     class Heroes
     {
         public int id { get; set; }
         public string name { get; set; }
+    }
+
+    public class ReqHero
+    {
+        public HeroCard hero { get; set; }
+        public int classid { get; set; }
+
+        public ReqHero()
+        {
+            hero = new HeroCard();
+        }
     }
 
     public class HeroCard
@@ -83,8 +108,9 @@ namespace Dungeons_and_Dragons
             public bool Intimidation { get; set; }
             public bool Performance { get; set; }
             public bool Conviction { get; set; }
-            public int WeapontFirstId { get; set; }
+            public int WeaponFirstId { get; set; }
             public int WeaponSecondId { get; set; }
+            public int ArmorId { get; set; }
             public int ShieldId { get; set; }
         }
 

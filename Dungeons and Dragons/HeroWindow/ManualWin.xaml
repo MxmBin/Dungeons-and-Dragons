@@ -1,0 +1,61 @@
+﻿<Window x:Class="Dungeons_and_Dragons.ManualWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dungeons_and_Dragons"
+        xmlns:col="clr-namespace:System.Collections;assembly=mscorlib"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        mc:Ignorable="d"
+        Title="Manual" Height="600" Width="700" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid Background="Lavender">
+        <Grid Height="60" VerticalAlignment="Top" Background="#FF307CD6">
+            <Label x:Name="ManualVersion" FontFamily="Segoe UI Black" FontSize="24" Margin="0,10" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+            <Button x:Name="CloseSettigsButton" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Width="60" Height="60" Click="CloseRegistration_Button">
+                <materialDesign:PackIcon Kind="Close" Width="30" Height="30" />
+            </Button>
+        </Grid>
+        <TabControl Margin="10 60 10 10">
+            <TabItem Header="Предметы">
+                <DataGrid Margin="10 10 10 10" x:Name="ManualItem" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=manual}">
+                    <DataGrid.Resources>
+                        <col:ArrayList x:Key="manual"/>
+                    </DataGrid.Resources>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Оружие">
+                <DataGrid Margin="10 10 10 10" x:Name="ManualWeapons" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=manual}">
+                    <DataGrid.Resources>
+                        <col:ArrayList x:Key="manual"/>
+                    </DataGrid.Resources>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Классы">
+                <DataGrid Margin="10 10 10 10" x:Name="ManualClasses" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=manual}">
+                    <DataGrid.Resources>
+                        <col:ArrayList x:Key="manual"/>
+                    </DataGrid.Resources>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Броня">
+                <DataGrid Margin="10 10 10 10" x:Name="ManualArmors" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=manual}">
+                    <DataGrid.Resources>
+                        <col:ArrayList x:Key="manual"/>
+                    </DataGrid.Resources>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="Способности">
+                <DataGrid Margin="10 10 10 10" x:Name="ManualAbilities" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=manual}">
+                    <DataGrid.Resources>
+                        <col:ArrayList x:Key="manual"/>
+                    </DataGrid.Resources>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+        <!--<DataGrid Margin="10 60 10 10" x:Name="ManualGrid" AutoGenerateColumns="True" ItemsSource="{DynamicResource ResourceKey=manual}">
+            <DataGrid.Resources>
+                <col:ArrayList x:Key="manual"/>
+            </DataGrid.Resources>
+        </DataGrid>-->
+    </Grid>
+</Window>

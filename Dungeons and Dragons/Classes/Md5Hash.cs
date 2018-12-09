@@ -2,7 +2,7 @@
 using System.Text;
 using System.Security.Cryptography;
 
-namespace Dungeons_and_Dragons.Classes
+namespace Dungeons_and_Dragons
 {
     public class Md5Hash
     {

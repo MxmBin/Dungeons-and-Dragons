@@ -14,6 +14,21 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -83,13 +98,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Classes\HeroClass.cs" />
-    <Compile Include="ClientClass.cs" />
+    <Compile Include="Classes\ClientClass.cs" />
+    <Compile Include="Classes\Manual.cs" />
+    <Compile Include="Classes\ManualInf.cs" />
+    <Compile Include="CreateHero\CreateMain.xaml.cs">
+      <DependentUpon>CreateMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateHero\CreateStatus.xaml.cs">
+      <DependentUpon>CreateStatus.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GmConnect.xaml.cs">
       <DependentUpon>GmConnect.xaml</DependentUpon>
     </Compile>
     <Compile Include="GmMainMenu.xaml.cs">
       <DependentUpon>GmMainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HeroWindow\ManualWin.xaml.cs">
+      <DependentUpon>ManualWin.xaml</DependentUpon>
     </Compile>
     <Compile Include="HeroWindow\Skills.xaml.cs">
       <DependentUpon>Skills.xaml</DependentUpon>
@@ -97,10 +122,10 @@
     <Compile Include="HeroWindow\Status.xaml.cs">
       <DependentUpon>Status.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ServerResponse.cs" />
-    <Compile Include="UserInfo.cs" />
+    <Compile Include="Classes\ServerResponse.cs" />
+    <Compile Include="Classes\UserInfo.cs" />
     <Compile Include="Classes\Md5Hash.cs" />
-    <Compile Include="MainMenu.xaml.cs">
+    <Compile Include="HeroWindow\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="RegistrationWindow.xaml.cs">
@@ -115,8 +140,11 @@
     <Compile Include="GameConnectingWindow.xaml.cs">
       <DependentUpon>GameConnectingWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Settings.xaml.cs">
+    <Compile Include="HeroWindow\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CreateHero\CreateHero.xaml.cs">
+      <DependentUpon>CreateHero.xaml</DependentUpon>
     </Compile>
     <Page Include="AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -130,11 +158,23 @@
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="CreateHero\CreateMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateHero\CreateStatus.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GmConnect.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GmMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HeroWindow\ManualWin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -146,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainMenu.xaml">
+    <Page Include="HeroWindow\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,7 +206,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Settings.xaml">
+    <Page Include="HeroWindow\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateHero\CreateHero.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -199,6 +243,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

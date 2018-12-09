@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using RestSharp;
-using Dungeons_and_Dragons.Classes;
 using Newtonsoft.Json;
 
 namespace Dungeons_and_Dragons

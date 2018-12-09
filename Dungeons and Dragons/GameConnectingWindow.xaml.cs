@@ -10,7 +10,7 @@ namespace Dungeons_and_Dragons
     /// </summary>
     public partial class GameConnectingWindow : Window
     {
-        ServerResponse heroesResponse;
+        ServerResponse heroesResponse, gamesResponse;
 
         public GameConnectingWindow()
         {
@@ -19,7 +19,7 @@ namespace Dungeons_and_Dragons
             GreetingLabel.Content = "Добро пожаловать, " + UserInfo.UserLogin;
             ClientClass client = new ClientClass();
             IRestResponse response = client.heroList(UserInfo.UserLogin, UserInfo.UserSession);
-            if(response.IsSuccessful)
+            if (response.IsSuccessful) 
             {
                 heroesResponse = JsonConvert.DeserializeObject<ServerResponse>(response.Content);
                 if (heroesResponse.heroes != null)
@@ -41,6 +41,26 @@ namespace Dungeons_and_Dragons
             else
             {
                 MessageBox.Show(response.Content);
+            }
+
+            client = new ClientClass();
+            IRestResponse responseGames = client.Games(UserInfo.UserLogin, UserInfo.UserSession);
+            if (responseGames.IsSuccessful)
+            {
+                gamesResponse = JsonConvert.DeserializeObject<ServerResponse>(responseGames.Content);
+                if (gamesResponse.games != null)
+                {
+                    foreach (var game in gamesResponse.games)
+                    {
+                        ComboBoxItem item = new ComboBoxItem();
+                        item.Content = game.Key;
+                        AllGames.Items.Add(item);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(responseGames.Content);
             }
         }
 
@@ -81,6 +101,19 @@ namespace Dungeons_and_Dragons
             {
                 MessageBox.Show(responseConnect.Content);
             }
+        }
+
+        private void AllGames_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ComboBoxItem cbi = ((sender as ComboBox).SelectedItem as ComboBoxItem);
+            GameKey.Text = cbi.Content.ToString();
+        }
+
+        private void CreateHero_Click(object sender, RoutedEventArgs e)
+        {
+            CreateHero creHero = new CreateHero();
+            Close();
+            creHero.ShowDialog();
         }
 
         private void Hero_Select(object sender, SelectionChangedEventArgs args)
