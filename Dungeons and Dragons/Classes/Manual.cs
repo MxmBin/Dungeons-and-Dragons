@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Dungeons_and_Dragons
 {
+    /// <summary>
+    /// ,kf,kf,kg
+    /// </summary>
     public class Manual
     {
         public ManualClass manual { get; set; }

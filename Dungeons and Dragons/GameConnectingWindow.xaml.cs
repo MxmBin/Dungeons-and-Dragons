@@ -1,7 +1,7 @@
-﻿using System.Windows;
-using System.Windows.Controls;
+﻿using Newtonsoft.Json;
 using RestSharp;
-using Newtonsoft.Json;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace Dungeons_and_Dragons
 {

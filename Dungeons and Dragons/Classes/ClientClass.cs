@@ -1,6 +1,6 @@
-﻿using System;
+﻿using RestSharp;
+using System;
 using System.Collections.Generic;
-using RestSharp;
 
 namespace Dungeons_and_Dragons
 {

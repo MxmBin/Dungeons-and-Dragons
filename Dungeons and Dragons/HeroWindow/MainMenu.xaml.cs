@@ -1,10 +1,6 @@
-﻿using System;
+﻿using RestSharp;
 using System.Windows;
 using System.Windows.Controls;
-using Newtonsoft.Json;
-using RestSharp;
-using System.Threading;
-using System.ComponentModel;
 
 namespace Dungeons_and_Dragons
 {
@@ -16,9 +12,9 @@ namespace Dungeons_and_Dragons
     {
         static ReqHero Hero = new ReqHero();
         public static Main charMain = new Main(ref Hero);
-        //public static Status charStatus = new Status(ref Hero);
-        //public static Inventory charInv = new Inventory(ref Hero);
-        //public static Skills charSkills = new Skills(ref Hero);
+        public static Status charStatus = new Status(ref Hero);
+        public static Inventory charInv = new Inventory(ref Hero);
+        public static Skills charSkills = new Skills(ref Hero);
 
 
         public MainMenu(HeroCard hero)
@@ -28,9 +24,9 @@ namespace Dungeons_and_Dragons
             Hero.hero = hero;
             UserLoginTextBlock.Text = UserInfo.UserLogin;
             charMain = new Main(ref Hero);
-            //charStatus = new Status(ref Hero);
-            //charInv = new Inventory(ref Hero);
-            //charSkills = new Skills(ref Hero);
+            charStatus = new Status(ref Hero);
+            charInv = new Inventory(ref Hero);
+            charSkills = new Skills(ref Hero);
             GridMain.Children.Add(charMain);
         }
 
@@ -48,25 +44,25 @@ namespace Dungeons_and_Dragons
 
         private void ListViewMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //GridMain.Children.Clear();
+            GridMain.Children.Clear();
 
-            //switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
-            //{
-            //    case "Main":
-            //        GridMain.Children.Add(charMain);
-            //        break;
-            //    case "Status":
-            //        GridMain.Children.Add(charStatus);
-            //        break;
-            //    case "Inventory":
-            //        GridMain.Children.Add(charInv);
-            //        break;
-            //    case "Skills":
-            //        GridMain.Children.Add(charSkills);
-            //        break;
-            //    default:
-            //        break;
-            //}
+            switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
+            {
+                case "Main":
+                    GridMain.Children.Add(charMain);
+                    break;
+                case "Status":
+                    GridMain.Children.Add(charStatus);
+                    break;
+                case "Inventory":
+                    GridMain.Children.Add(charInv);
+                    break;
+                case "Skills":
+                    GridMain.Children.Add(charSkills);
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void SettingsButton_Click(object sender, RoutedEventArgs e)

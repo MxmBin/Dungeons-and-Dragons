@@ -16,7 +16,7 @@
                                 <StackPanel>
                                     <StackPanel Orientation="Horizontal">
                                         <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                            <TextBox x:Name="NameCharBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                            <TextBox x:Name="NameCharBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand"/>
                                             <TextBlock Text="Имя персонажа" HorizontalAlignment="Center"/>
                                         </StackPanel>
                                         <StackPanel>
@@ -25,23 +25,23 @@
                                                 <TextBlock Text="Класс и уровень" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                             <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBox x:Name="PrehistoryBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                                <TextBox x:Name="PrehistoryBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand"/>
                                                 <TextBlock Text="Предыстория" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                         </StackPanel>
                                         <StackPanel>
                                             <StackPanel   HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBox x:Name="NamePlayerBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                                <TextBox x:Name="NamePlayerBox" TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand"/>
                                                 <TextBlock Text="Имя игрока" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                             <StackPanel   HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBox TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                                <TextBox TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand"/>
                                                 <TextBlock Text="Раса" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                         </StackPanel>
                                         <StackPanel>
                                             <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <TextBox TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand" IsReadOnly="True"/>
+                                                <TextBox TextAlignment="Center" Width="190" SelectionOpacity="0" Cursor="Hand"/>
                                                 <TextBlock Text="Мировоззрение" HorizontalAlignment="Center"/>
                                             </StackPanel>
                                             <StackPanel  HorizontalAlignment="Center" VerticalAlignment="Center">
